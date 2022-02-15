@@ -1,0 +1,8 @@
+<!--  Catagories  -->
+<div class="catagories-menu">
+    <ul>
+        {% for category in categories %}
+            <li><a href="{% url 'products:category' category.pk %}">{{ category }}</a></li>
+        {% endfor %}
+    </ul>
+</div>

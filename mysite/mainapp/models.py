@@ -19,6 +19,8 @@ class Product(models.Model):
                                   max_length=64, blank=True)
     image = models.ImageField(verbose_name='Изображение',
                               upload_to='products_images', blank=True)
+    big_image = models.ImageField(verbose_name='Изображение на гланую',
+                                  upload_to='_big_products_images', blank=True)
     price = models.DecimalField(verbose_name='Цена', max_digits=8,
                                 decimal_places=2, default=0)
     quantity = models.PositiveIntegerField(verbose_name='Кол-во на складе',

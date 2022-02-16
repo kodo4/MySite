@@ -28,11 +28,22 @@
                                 active
                                 {% endif %}">
                         <a href="{% url link.href %}">{{ link.name }}</a></li>
-
                     {% endfor %}
-                    <li><a href="product-details.html">Product</a></li>
                     <li><a href="cart.html">Cart</a></li>
-                    <li><a href="checkout.html">Checkout</a></li>
+                    <li>
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'auth:logout' %}">Logout</a>
+                        {% else %}
+                            <a href="{% url 'auth:login' %}">Login</a>
+                        {% endif %}
+                    </li>
+                    {% if user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'auth:edit' %}">
+                                {{ user.first_name|default:'User' }}
+                            </a>
+                        </li>
+                    {% endif %}
                 </ul>
             </nav>
             <!-- Button Group -->
